@@ -16,12 +16,6 @@ namespace Neptuno2022EF.Datos.Repositorios
             _context = context;
         }
 
-        //private readonly Func<NeptunoDbContext> _contextFactory;
-
-        //public RepositorioPaises(Func<NeptunoDbContext> contextFactory)
-        //{
-        //    _contextFactory = contextFactory;
-        //}
 
         public void Agregar(Pais pais)
         {

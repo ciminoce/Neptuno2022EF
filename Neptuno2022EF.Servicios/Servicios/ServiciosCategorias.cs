@@ -1,28 +1,23 @@
-﻿using Neptuno2022EF.Datos;
-using Neptuno2022EF.Datos.Interfaces;
-using Neptuno2022EF.Datos.Repositorios;
+﻿using Neptuno2022EF.Datos.Interfaces;
+using Neptuno2022EF.Datos;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Servicios.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Neptuno2022EF.Servicios.Servicios
 {
-    public class ServiciosPaises : IServiciosPaises
+    public class ServiciosCategorias:IServiciosCategorias
     {
-        private readonly IRepositorioPaises _repositorio;
+        private readonly IRepositorioCategorias _repositorio;
         private readonly IUnitOfWork _unitOfWork;
         //private readonly NeptunoDbContext _context;
 
-        public ServiciosPaises(IRepositorioPaises repositorio, IUnitOfWork unitOfWork)
+        public ServiciosCategorias(IRepositorioCategorias repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
         }
-
 
         public void Borrar(int id)
         {
@@ -38,11 +33,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public bool EstaRelacionado(Pais pais)
+        public bool EstaRelacionado(Categoria categoria)
         {
             try
             {
-                return _repositorio.EstaRelacionado(pais);
+                return _repositorio.EstaRelacionado(categoria);
             }
             catch (Exception)
             {
@@ -51,11 +46,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public bool Existe(Pais pais)
+        public bool Existe(Categoria categoria)
         {
             try
             {
-                return _repositorio.Existe(pais);
+                return _repositorio.Existe(categoria);
             }
             catch (Exception)
             {
@@ -77,11 +72,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public List<Pais> GetPaises()
+        public List<Categoria> GetCategorias()
         {
             try
             {
-                return _repositorio.GetPaises();
+                return _repositorio.GetCategorias();
             }
             catch (Exception)
             {
@@ -90,11 +85,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public Pais GetPaisPorId(int paisId)
+        public Categoria GetCategoriaPorId(int categoriaId)
         {
             try
             {
-                return _repositorio.GetPaisPorId(paisId);
+                return _repositorio.GetCategoriaPorId(categoriaId);
             }
             catch (Exception)
             {
@@ -103,11 +98,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public List<Pais> GetPaisPorPagina(int cantidad, int pagina)
+        public List<Categoria> GetCategoriaPorPagina(int cantidad, int pagina)
         {
             try
             {
-                return _repositorio.GetPaisesPorPagina(cantidad, pagina);
+                return _repositorio.GetCategoriasPorPagina(cantidad, pagina);
             }
             catch (Exception)
             {
@@ -116,20 +111,34 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public void Guardar(Pais pais)
+        public void Guardar(Categoria categoria)
         {
             try
             {
-                if (pais.PaisId==0)
+                if (categoria.CategoriaId == 0)
                 {
-                    _repositorio.Agregar(pais);
-                    
+                    _repositorio.Agregar(categoria);
+
                 }
                 else
                 {
-                    _repositorio.Editar(pais);
+                    _repositorio.Editar(categoria);
                 }
                 _unitOfWork.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public List<Categoria> GetCategoriasPorPagina(int cantidad, int pagina)
+        {
+            try
+            {
+                return _repositorio.GetCategoriasPorPagina(cantidad, pagina);
             }
             catch (Exception)
             {

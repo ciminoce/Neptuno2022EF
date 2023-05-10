@@ -12,9 +12,15 @@ namespace Neptuno2022EF.Windows
 {
     public partial class frmProductoAE : Form
     {
+        
         public frmProductoAE()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

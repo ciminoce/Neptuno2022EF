@@ -41,5 +41,17 @@ namespace Neptuno2022EF.Windows
             frmClientes frm = new frmClientes(DI.Create<IServiciosClientes>());
             frm.ShowDialog(this);
         }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            frmProveedores frm=new frmProveedores(DI.Create<IServiciosProveedores>());
+            frm.ShowDialog(this);
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategorias frm = new frmCategorias(DI.Create<IServiciosCategorias>());
+            frm.ShowDialog(this);
+        }
     }
 }

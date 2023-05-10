@@ -1,28 +1,27 @@
-﻿using Neptuno2022EF.Datos;
-using Neptuno2022EF.Datos.Interfaces;
-using Neptuno2022EF.Datos.Repositorios;
-using Neptuno2022EF.Entidades.Entidades;
+﻿using Neptuno2022EF.Datos.Interfaces;
+using Neptuno2022EF.Datos;
+using Neptuno2022EF.Entidades.Dtos.Proveedor;
 using Neptuno2022EF.Servicios.Interfaces;
+using NuevaAppComercial2022.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Neptuno2022EF.Entidades.Entidades;
 
 namespace Neptuno2022EF.Servicios.Servicios
 {
-    public class ServiciosPaises : IServiciosPaises
+    public class ServiciosProveedores:IServiciosProveedores
     {
-        private readonly IRepositorioPaises _repositorio;
+        private readonly IRepositorioProveedores _repositorio;
         private readonly IUnitOfWork _unitOfWork;
-        //private readonly NeptunoDbContext _context;
 
-        public ServiciosPaises(IRepositorioPaises repositorio, IUnitOfWork unitOfWork)
+        public ServiciosProveedores(IRepositorioProveedores repositorio, IUnitOfWork unitOfWork)
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
         }
-
 
         public void Borrar(int id)
         {
@@ -38,11 +37,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public bool EstaRelacionado(Pais pais)
+        public bool EstaRelacionado(Proveedor proveedor)
         {
             try
             {
-                return _repositorio.EstaRelacionado(pais);
+                return _repositorio.EstaRelacionado(proveedor);
             }
             catch (Exception)
             {
@@ -51,11 +50,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public bool Existe(Pais pais)
+        public bool Existe(Proveedor proveedor)
         {
             try
             {
-                return _repositorio.Existe(pais);
+                return _repositorio.Existe(proveedor);
             }
             catch (Exception)
             {
@@ -64,11 +63,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public int GetCantidad()
+        public List<ProveedorListDto> Filtrar(Func<Proveedor, bool> predicado)
         {
             try
             {
-                return _repositorio.GetCantidad();
+                return _repositorio.Filtrar(predicado);
             }
             catch (Exception)
             {
@@ -77,11 +76,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public List<Pais> GetPaises()
+        public Proveedor GetProveedorPorId(int id)
         {
             try
             {
-                return _repositorio.GetPaises();
+                return _repositorio.GetProveedorPorId(id);
             }
             catch (Exception)
             {
@@ -90,11 +89,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public Pais GetPaisPorId(int paisId)
+        public List<ProveedorListDto> GetProveedores()
         {
             try
             {
-                return _repositorio.GetPaisPorId(paisId);
+                return _repositorio.GetProveedores();
             }
             catch (Exception)
             {
@@ -103,11 +102,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public List<Pais> GetPaisPorPagina(int cantidad, int pagina)
+        public List<ProveedorListDto> GetProveedores(int paisId, int ciudadId)
         {
             try
             {
-                return _repositorio.GetPaisesPorPagina(cantidad, pagina);
+                return _repositorio.GetProveedores(paisId, ciudadId);
             }
             catch (Exception)
             {
@@ -116,18 +115,17 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public void Guardar(Pais pais)
+        public void Guardar(Proveedor proveedor)
         {
             try
             {
-                if (pais.PaisId==0)
+                if (proveedor.Id == 0)
                 {
-                    _repositorio.Agregar(pais);
-                    
+                    _repositorio.Agregar(proveedor);
                 }
                 else
                 {
-                    _repositorio.Editar(pais);
+                    _repositorio.Editar(proveedor);
                 }
                 _unitOfWork.SaveChanges();
             }
@@ -137,5 +135,6 @@ namespace Neptuno2022EF.Servicios.Servicios
                 throw;
             }
         }
+
     }
 }
