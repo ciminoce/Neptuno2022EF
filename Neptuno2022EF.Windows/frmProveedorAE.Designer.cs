@@ -58,6 +58,7 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnOK
             // 
@@ -70,6 +71,7 @@
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnAgregarCiudad
             // 
@@ -106,6 +108,7 @@
             this.cboPaises.Name = "cboPaises";
             this.cboPaises.Size = new System.Drawing.Size(282, 21);
             this.cboPaises.TabIndex = 46;
+            this.cboPaises.SelectedIndexChanged += new System.EventHandler(this.cboPaises_SelectedIndexChanged);
             // 
             // txtProveedor
             // 
@@ -184,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 334);
+            this.ClientSize = new System.Drawing.Size(529, 316);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnAgregarCiudad);
@@ -199,7 +202,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(545, 355);
+            this.MinimumSize = new System.Drawing.Size(545, 355);
             this.Name = "frmProveedorAE";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProveedorAE";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

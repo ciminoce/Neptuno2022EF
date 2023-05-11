@@ -84,6 +84,7 @@
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
             // btnProductos
             // 
@@ -95,6 +96,7 @@
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnProveedores
             // 

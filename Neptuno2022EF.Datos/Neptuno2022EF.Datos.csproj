@@ -65,6 +65,7 @@
     <Compile Include="Interfaces\IRepositorioPaises.cs" />
     <Compile Include="Interfaces\IRepositorioProductos.cs" />
     <Compile Include="Interfaces\IRepositorioProveedores.cs" />
+    <Compile Include="Interfaces\IRepositorioVentas.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="NeptunoDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Repositorios\RepositorioPaises.cs" />
     <Compile Include="Repositorios\RepositorioProductos.cs" />
     <Compile Include="Repositorios\RepositorioProveedortes.cs" />
+    <Compile Include="Repositorios\RepositorioVentas.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

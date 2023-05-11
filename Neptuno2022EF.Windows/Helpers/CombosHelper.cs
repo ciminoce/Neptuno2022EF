@@ -1,12 +1,9 @@
 ﻿using Neptuno2022EF.Entidades.Dtos.Ciudad;
+using Neptuno2022EF.Entidades.Dtos.Proveedor;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Ioc;
 using Neptuno2022EF.Servicios.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Neptuno2022EF.Windows.Helpers
@@ -29,6 +26,23 @@ namespace Neptuno2022EF.Windows.Helpers
             combo.SelectedIndex = 0;
         }
 
+        public static void CargarComboCategorias(ref ComboBox combo)
+        {
+            IServiciosCategorias _servicio = DI.Create<IServiciosCategorias>();
+            var lista = _servicio.GetCategorias();
+            var defaultCategoria = new Categoria
+            {
+                CategoriaId = 0,
+                NombreCategoria = "Seleccione Categoría"
+            };
+            lista.Insert(0, defaultCategoria);
+            combo.DataSource = lista;
+            combo.ValueMember = "CategoriaId";
+            combo.DisplayMember = "NombreCategoria";
+            combo.SelectedIndex = 0;
+
+        }
+
         internal static void CargarComboCiudades(ref ComboBox combo, Pais paisSeleccionado)
         {
             IServiciosCiudades _servicio = DI.Create<IServiciosCiudades>();
@@ -42,6 +56,22 @@ namespace Neptuno2022EF.Windows.Helpers
             combo.DataSource = lista;
             combo.ValueMember = "CiudadId";
             combo.DisplayMember = "NombreCiudad";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarComboProveedores(ref ComboBox combo)
+        {
+            IServiciosProveedores _servicio = DI.Create<IServiciosProveedores>();
+            var lista = _servicio.GetProveedores();
+            var defaultProveedor = new ProveedorListDto
+            {
+                ProveedorId = 0,
+                NombreProveedor = "Seleccione Proveedor"
+            };
+            lista.Insert(0, defaultProveedor);
+            combo.DataSource = lista;
+            combo.ValueMember = "ProveedorId";
+            combo.DisplayMember = "NombreProveedor";
             combo.SelectedIndex = 0;
         }
     }

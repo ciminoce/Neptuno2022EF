@@ -341,6 +341,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmProveedores";
             this.Text = "frmProveedores";
+            this.Load += new System.EventHandler(this.frmProveedores_Load);
             this.panelGrilla.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.panelInferior.ResumeLayout(false);

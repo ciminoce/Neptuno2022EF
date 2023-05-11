@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace Neptuno2022EF.Datos.Repositorios
 {
-    public class RepositorioProveedortes:IRepositorioProveedores
+    public class RepositorioProveedores:IRepositorioProveedores
     {
         private readonly NeptunoDbContext _context;
 
-        public RepositorioProveedortes(NeptunoDbContext context)
+        public RepositorioProveedores(NeptunoDbContext context)
         {
             _context = context;
         }

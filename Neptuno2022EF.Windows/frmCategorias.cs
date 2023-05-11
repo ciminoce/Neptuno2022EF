@@ -12,6 +12,7 @@ namespace Neptuno2022EF.Windows
         public frmCategorias(IServiciosCategorias servicio)
         {
             InitializeComponent();
+            _servicio = servicio;
         }
 
         private List<Categoria> lista;

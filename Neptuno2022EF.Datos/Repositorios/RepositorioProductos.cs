@@ -52,12 +52,19 @@ namespace Neptuno2022EF.Datos.Repositorios
 
         public bool EstaRelacionado(Producto producto)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Existe(Producto producto)
         {
-            throw new NotImplementedException();
+            if (producto.ProductoId==0)
+            {
+                return _context.Productos.Any(p => p.NombreProducto == producto.NombreProducto &&
+                p.CategoriaId == producto.CategoriaId);
+            }
+            return _context.Productos.Any(p => p.NombreProducto == producto.NombreProducto &&
+                p.CategoriaId == producto.CategoriaId && p.ProductoId!=producto.ProductoId);
+
         }
 
         public List<ProductoListDto> Filtrar(Func<Producto, bool> predicado)
@@ -67,17 +74,38 @@ namespace Neptuno2022EF.Datos.Repositorios
 
         public Producto GetProductoPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Productos.Include(p=>p.Categoria)
+                .Include(p=>p.Proveedor).SingleOrDefault(p=>p.ProductoId==id);
         }
 
         public List<ProductoListDto> GetProductos()
         {
-            throw new NotImplementedException();
+            return _context.Productos.Include(p=>p.Categoria)
+                .Select(p=>new ProductoListDto()
+                {
+                    ProductoId=p.ProductoId,
+                    NombreProducto=p.NombreProducto,
+                    Categoria=p.Categoria.NombreCategoria,
+                    PrecioUnitario=p.PrecioUnitario,
+                    Stock=p.Stock,
+                    Suspendido=p.Suspendido,
+                }).ToList();
         }
 
-        public List<ProductoListDto> GetProductos(int paisId, int ciudadId)
+        public List<ProductoListDto> GetProductos(int categoriaId)
         {
-            throw new NotImplementedException();
+            return _context.Productos.Include(p => p.Categoria)
+                .Where(p=>p.CategoriaId==categoriaId)
+                .Select(p => new ProductoListDto()
+                {
+                    ProductoId = p.ProductoId,
+                    NombreProducto = p.NombreProducto,
+                    Categoria = p.Categoria.NombreCategoria,
+                    PrecioUnitario = p.PrecioUnitario,
+                    Stock = p.Stock,
+                    Suspendido = p.Suspendido,
+                }).ToList();
+
         }
     }
 }

@@ -29,39 +29,40 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.SuspendidoCheckBox = new System.Windows.Forms.CheckBox();
+            this.chkSuspendido = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.MinimoNmericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.nudMinimo = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.StockNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ProveedoresComboBox = new System.Windows.Forms.ComboBox();
+            this.cboProveedores = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.CategoriasComboBox = new System.Windows.Forms.ComboBox();
+            this.cboCategorias = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PrecioVtaTextBox = new System.Windows.Forms.TextBox();
-            this.ProductoTextBox = new System.Windows.Forms.TextBox();
+            this.txtPrecioVta = new System.Windows.Forms.TextBox();
+            this.txtProducto = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.ImagenPictureBox = new System.Windows.Forms.PictureBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.MinimoNmericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StockNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).BeginInit();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // SuspendidoCheckBox
+            // chkSuspendido
             // 
-            this.SuspendidoCheckBox.AutoSize = true;
-            this.SuspendidoCheckBox.Location = new System.Drawing.Point(145, 245);
-            this.SuspendidoCheckBox.Name = "SuspendidoCheckBox";
-            this.SuspendidoCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.SuspendidoCheckBox.TabIndex = 60;
-            this.SuspendidoCheckBox.UseVisualStyleBackColor = true;
+            this.chkSuspendido.AutoSize = true;
+            this.chkSuspendido.Location = new System.Drawing.Point(145, 245);
+            this.chkSuspendido.Name = "chkSuspendido";
+            this.chkSuspendido.Size = new System.Drawing.Size(15, 14);
+            this.chkSuspendido.TabIndex = 60;
+            this.chkSuspendido.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -72,24 +73,24 @@
             this.label7.TabIndex = 59;
             this.label7.Text = "Suspendido:";
             // 
-            // MinimoNmericUpDown
+            // nudMinimo
             // 
-            this.MinimoNmericUpDown.Location = new System.Drawing.Point(145, 210);
-            this.MinimoNmericUpDown.Maximum = new decimal(new int[] {
+            this.nudMinimo.Location = new System.Drawing.Point(145, 210);
+            this.nudMinimo.Maximum = new decimal(new int[] {
             30,
             0,
             0,
             0});
-            this.MinimoNmericUpDown.Minimum = new decimal(new int[] {
+            this.nudMinimo.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.MinimoNmericUpDown.Name = "MinimoNmericUpDown";
-            this.MinimoNmericUpDown.ReadOnly = true;
-            this.MinimoNmericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.MinimoNmericUpDown.TabIndex = 57;
-            this.MinimoNmericUpDown.Value = new decimal(new int[] {
+            this.nudMinimo.Name = "nudMinimo";
+            this.nudMinimo.ReadOnly = true;
+            this.nudMinimo.Size = new System.Drawing.Size(120, 20);
+            this.nudMinimo.TabIndex = 57;
+            this.nudMinimo.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -104,19 +105,19 @@
             this.label6.TabIndex = 54;
             this.label6.Text = "Stock Mínimo:";
             // 
-            // StockNumericUpDown
+            // nudStock
             // 
-            this.StockNumericUpDown.Location = new System.Drawing.Point(145, 176);
-            this.StockNumericUpDown.Minimum = new decimal(new int[] {
+            this.nudStock.Location = new System.Drawing.Point(145, 176);
+            this.nudStock.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.StockNumericUpDown.Name = "StockNumericUpDown";
-            this.StockNumericUpDown.ReadOnly = true;
-            this.StockNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.StockNumericUpDown.TabIndex = 58;
-            this.StockNumericUpDown.Value = new decimal(new int[] {
+            this.nudStock.Name = "nudStock";
+            this.nudStock.ReadOnly = true;
+            this.nudStock.Size = new System.Drawing.Size(120, 20);
+            this.nudStock.TabIndex = 58;
+            this.nudStock.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -140,14 +141,14 @@
             this.label3.TabIndex = 56;
             this.label3.Text = "Precio Vta:";
             // 
-            // ProveedoresComboBox
+            // cboProveedores
             // 
-            this.ProveedoresComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProveedoresComboBox.FormattingEnabled = true;
-            this.ProveedoresComboBox.Location = new System.Drawing.Point(145, 109);
-            this.ProveedoresComboBox.Name = "ProveedoresComboBox";
-            this.ProveedoresComboBox.Size = new System.Drawing.Size(263, 21);
-            this.ProveedoresComboBox.TabIndex = 52;
+            this.cboProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProveedores.FormattingEnabled = true;
+            this.cboProveedores.Location = new System.Drawing.Point(145, 109);
+            this.cboProveedores.Name = "cboProveedores";
+            this.cboProveedores.Size = new System.Drawing.Size(263, 21);
+            this.cboProveedores.TabIndex = 52;
             // 
             // label5
             // 
@@ -158,14 +159,14 @@
             this.label5.TabIndex = 49;
             this.label5.Text = "Proveedor:";
             // 
-            // CategoriasComboBox
+            // cboCategorias
             // 
-            this.CategoriasComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CategoriasComboBox.FormattingEnabled = true;
-            this.CategoriasComboBox.Location = new System.Drawing.Point(145, 75);
-            this.CategoriasComboBox.Name = "CategoriasComboBox";
-            this.CategoriasComboBox.Size = new System.Drawing.Size(263, 21);
-            this.CategoriasComboBox.TabIndex = 53;
+            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategorias.FormattingEnabled = true;
+            this.cboCategorias.Location = new System.Drawing.Point(145, 75);
+            this.cboCategorias.Name = "cboCategorias";
+            this.cboCategorias.Size = new System.Drawing.Size(263, 21);
+            this.cboCategorias.TabIndex = 53;
             // 
             // label2
             // 
@@ -185,21 +186,21 @@
             this.label1.TabIndex = 51;
             this.label1.Text = "Producto:";
             // 
-            // PrecioVtaTextBox
+            // txtPrecioVta
             // 
-            this.PrecioVtaTextBox.Location = new System.Drawing.Point(145, 143);
-            this.PrecioVtaTextBox.MaxLength = 200;
-            this.PrecioVtaTextBox.Name = "PrecioVtaTextBox";
-            this.PrecioVtaTextBox.Size = new System.Drawing.Size(263, 20);
-            this.PrecioVtaTextBox.TabIndex = 47;
+            this.txtPrecioVta.Location = new System.Drawing.Point(145, 143);
+            this.txtPrecioVta.MaxLength = 200;
+            this.txtPrecioVta.Name = "txtPrecioVta";
+            this.txtPrecioVta.Size = new System.Drawing.Size(263, 20);
+            this.txtPrecioVta.TabIndex = 47;
             // 
-            // ProductoTextBox
+            // txtProducto
             // 
-            this.ProductoTextBox.Location = new System.Drawing.Point(145, 42);
-            this.ProductoTextBox.MaxLength = 200;
-            this.ProductoTextBox.Name = "ProductoTextBox";
-            this.ProductoTextBox.Size = new System.Drawing.Size(360, 20);
-            this.ProductoTextBox.TabIndex = 48;
+            this.txtProducto.Location = new System.Drawing.Point(145, 42);
+            this.txtProducto.MaxLength = 200;
+            this.txtProducto.Name = "txtProducto";
+            this.txtProducto.Size = new System.Drawing.Size(360, 20);
+            this.txtProducto.TabIndex = 48;
             // 
             // btnBuscar
             // 
@@ -212,6 +213,7 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnCancelar
             // 
@@ -237,20 +239,25 @@
             this.btnOK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // ImagenPictureBox
+            // pbImagen
             // 
-            this.ImagenPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ImagenPictureBox.Location = new System.Drawing.Point(582, 42);
-            this.ImagenPictureBox.Name = "ImagenPictureBox";
-            this.ImagenPictureBox.Size = new System.Drawing.Size(159, 143);
-            this.ImagenPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ImagenPictureBox.TabIndex = 61;
-            this.ImagenPictureBox.TabStop = false;
+            this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImagen.Location = new System.Drawing.Point(582, 42);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(159, 143);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagen.TabIndex = 61;
+            this.pbImagen.TabStop = false;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmProductoAE
             // 
@@ -260,26 +267,26 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.ImagenPictureBox);
-            this.Controls.Add(this.SuspendidoCheckBox);
+            this.Controls.Add(this.pbImagen);
+            this.Controls.Add(this.chkSuspendido);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.MinimoNmericUpDown);
+            this.Controls.Add(this.nudMinimo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.StockNumericUpDown);
+            this.Controls.Add(this.nudStock);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.ProveedoresComboBox);
+            this.Controls.Add(this.cboProveedores);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.CategoriasComboBox);
+            this.Controls.Add(this.cboCategorias);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.PrecioVtaTextBox);
-            this.Controls.Add(this.ProductoTextBox);
+            this.Controls.Add(this.txtPrecioVta);
+            this.Controls.Add(this.txtProducto);
             this.Name = "frmProductoAE";
             this.Text = "frmProductoAE";
-            ((System.ComponentModel.ISupportInitialize)(this.MinimoNmericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StockNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,21 +298,22 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.PictureBox ImagenPictureBox;
-        private System.Windows.Forms.CheckBox SuspendidoCheckBox;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.CheckBox chkSuspendido;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown MinimoNmericUpDown;
+        private System.Windows.Forms.NumericUpDown nudMinimo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.NumericUpDown StockNumericUpDown;
+        private System.Windows.Forms.NumericUpDown nudStock;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox ProveedoresComboBox;
+        private System.Windows.Forms.ComboBox cboProveedores;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox CategoriasComboBox;
+        private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PrecioVtaTextBox;
-        private System.Windows.Forms.TextBox ProductoTextBox;
+        private System.Windows.Forms.TextBox txtPrecioVta;
+        private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

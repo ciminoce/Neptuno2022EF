@@ -3,13 +3,12 @@ using Neptuno2022EF.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
 
-namespace Neptuno2022EF.Datos.Interfaces
+namespace Neptuno2022EF.Servicios.Interfaces
 {
-    public interface IRepositorioProductos
+    public interface IServiciosProductos
     {
-        void Agregar(Producto producto);
+        void Guardar(Producto producto);
         void Borrar(int id);
-        void Editar(Producto producto);
         bool EstaRelacionado(Producto producto);
         bool Existe(Producto producto);
         Producto GetProductoPorId(int id);

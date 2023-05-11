@@ -24,6 +24,18 @@ namespace Neptuno2022EF.Ioc
             Bind<IRepositorioClientes>().To<RepositorioClientes>();
             Bind<IServiciosClientes>().To<ServiciosClientes>();
 
+            Bind<IRepositorioCategorias>().To<RepositorioCategorias>();
+            Bind<IServiciosCategorias>().To<ServiciosCategorias>();
+
+            Bind<IRepositorioProveedores>().To<RepositorioProveedores>();
+            Bind<IServiciosProveedores>().To<ServiciosProveedores>();
+
+            Bind<IRepositorioVentas>().To<RepositorioVentas>();
+            Bind<IServiciosVentas>().To<ServiciosVentas>();
+
+            Bind<IRepositorioProductos>().To<RepositorioProductos>();
+            Bind<IServiciosProductos>().To<ServiciosProductos>();
+
             Bind<IUnitOfWork>().To<UnitOfWork>();
         }
     }
