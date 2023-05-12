@@ -17,6 +17,7 @@ namespace Neptuno2022EF.Datos
         {
             
         }
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Pais> Paises { get; set; }

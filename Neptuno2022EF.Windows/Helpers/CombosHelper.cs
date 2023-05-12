@@ -1,4 +1,6 @@
-﻿using Neptuno2022EF.Entidades.Dtos.Ciudad;
+﻿using Neptuno2022EF.Entidades.Dtos;
+using Neptuno2022EF.Entidades.Dtos.Ciudad;
+using Neptuno2022EF.Entidades.Dtos.Cliente;
 using Neptuno2022EF.Entidades.Dtos.Proveedor;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Ioc;
@@ -43,7 +45,7 @@ namespace Neptuno2022EF.Windows.Helpers
 
         }
 
-        internal static void CargarComboCiudades(ref ComboBox combo, Pais paisSeleccionado)
+        public static void CargarComboCiudades(ref ComboBox combo, Pais paisSeleccionado)
         {
             IServiciosCiudades _servicio = DI.Create<IServiciosCiudades>();
             var lista = _servicio.GetCiudades(paisSeleccionado.PaisId);
@@ -74,5 +76,38 @@ namespace Neptuno2022EF.Windows.Helpers
             combo.DisplayMember = "NombreProveedor";
             combo.SelectedIndex = 0;
         }
+
+        public static void CargarComboClientes(ref ComboBox combo)
+        {
+            IServiciosClientes _servicio = DI.Create<IServiciosClientes>();
+            var lista = _servicio.GetClientes();
+            var defaultCliente = new ClienteListDto
+            {
+                ClienteId = 0,
+                NombreCliente = "Seleccione Cliente"
+            };
+            lista.Insert(0, defaultCliente);
+            combo.DataSource = lista;
+            combo.ValueMember = "ClienteId";
+            combo.DisplayMember = "NombreCliente";
+            combo.SelectedIndex = 0;
+        }
+
+        public static void CargarComboProductos(ref ComboBox combo, Categoria categoriaSeleccionada)
+        {
+            IServiciosProductos _servicio = DI.Create<IServiciosProductos>();
+            var lista = _servicio.GetProductos(categoriaSeleccionada.CategoriaId);
+            var defaultProducto = new ProductoListDto
+            {
+                ProductoId = 0,
+                NombreProducto = "Seleccione Producto"
+            };
+            lista.Insert(0, defaultProducto);
+            combo.DataSource = lista;
+            combo.ValueMember = "ProductoId";
+            combo.DisplayMember = "NombreProducto";
+            combo.SelectedIndex = 0;
+        }
+
     }
 }

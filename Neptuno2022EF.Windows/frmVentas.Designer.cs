@@ -32,7 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGrilla = new System.Windows.Forms.Panel();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.cmnNroVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnFechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInferior = new System.Windows.Forms.Panel();
+            this.btnUltimo = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnPrimero = new System.Windows.Forms.Button();
             this.lblPaginas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblPaginaActual = new System.Windows.Forms.Label();
@@ -40,28 +49,19 @@
             this.lblRegistros = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.cmnNroVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnFechaVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUltimo = new System.Windows.Forms.Button();
-            this.btnSiguiente = new System.Windows.Forms.Button();
-            this.btnAnterior = new System.Windows.Forms.Button();
-            this.btnPrimero = new System.Windows.Forms.Button();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbDetalle = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbFiltrar = new System.Windows.Forms.ToolStripButton();
             this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
             this.panelGrilla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panelInferior.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGrilla
@@ -72,6 +72,59 @@
             this.panelGrilla.Name = "panelGrilla";
             this.panelGrilla.Size = new System.Drawing.Size(800, 336);
             this.panelGrilla.TabIndex = 11;
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cmnNroVenta,
+            this.cmnFechaVenta,
+            this.cmnCliente,
+            this.cmnTotal});
+            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dgvDatos.MultiSelect = false;
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersVisible = false;
+            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDatos.Size = new System.Drawing.Size(800, 336);
+            this.dgvDatos.TabIndex = 3;
+            // 
+            // cmnNroVenta
+            // 
+            this.cmnNroVenta.HeaderText = "Nro. Venta";
+            this.cmnNroVenta.Name = "cmnNroVenta";
+            this.cmnNroVenta.ReadOnly = true;
+            // 
+            // cmnFechaVenta
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.cmnFechaVenta.DefaultCellStyle = dataGridViewCellStyle5;
+            this.cmnFechaVenta.HeaderText = "Fecha Venta";
+            this.cmnFechaVenta.Name = "cmnFechaVenta";
+            this.cmnFechaVenta.ReadOnly = true;
+            this.cmnFechaVenta.Width = 262;
+            // 
+            // cmnCliente
+            // 
+            this.cmnCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cmnCliente.HeaderText = "Cliente";
+            this.cmnCliente.Name = "cmnCliente";
+            this.cmnCliente.ReadOnly = true;
+            // 
+            // cmnTotal
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cmnTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.cmnTotal.HeaderText = "Total";
+            this.cmnTotal.Name = "cmnTotal";
+            this.cmnTotal.ReadOnly = true;
             // 
             // panelInferior
             // 
@@ -90,6 +143,42 @@
             this.panelInferior.Name = "panelInferior";
             this.panelInferior.Size = new System.Drawing.Size(800, 60);
             this.panelInferior.TabIndex = 10;
+            // 
+            // btnUltimo
+            // 
+            this.btnUltimo.Image = global::Neptuno2022EF.Windows.Properties.Resources.last_24px;
+            this.btnUltimo.Location = new System.Drawing.Point(517, 13);
+            this.btnUltimo.Name = "btnUltimo";
+            this.btnUltimo.Size = new System.Drawing.Size(75, 32);
+            this.btnUltimo.TabIndex = 39;
+            this.btnUltimo.UseVisualStyleBackColor = true;
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Image = global::Neptuno2022EF.Windows.Properties.Resources.next_24px;
+            this.btnSiguiente.Location = new System.Drawing.Point(436, 13);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 32);
+            this.btnSiguiente.TabIndex = 40;
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Image = global::Neptuno2022EF.Windows.Properties.Resources.previous_24px;
+            this.btnAnterior.Location = new System.Drawing.Point(355, 13);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 32);
+            this.btnAnterior.TabIndex = 41;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            // 
+            // btnPrimero
+            // 
+            this.btnPrimero.Image = global::Neptuno2022EF.Windows.Properties.Resources.first_24px;
+            this.btnPrimero.Location = new System.Drawing.Point(274, 13);
+            this.btnPrimero.Name = "btnPrimero";
+            this.btnPrimero.Size = new System.Drawing.Size(75, 32);
+            this.btnPrimero.TabIndex = 42;
+            this.btnPrimero.UseVisualStyleBackColor = true;
             // 
             // lblPaginas
             // 
@@ -166,110 +255,6 @@
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
-            // 
-            // dgvDatos
-            // 
-            this.dgvDatos.AllowUserToAddRows = false;
-            this.dgvDatos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cmnNroVenta,
-            this.cmnFechaVenta,
-            this.cmnCliente,
-            this.cmnTotal});
-            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
-            this.dgvDatos.MultiSelect = false;
-            this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.ReadOnly = true;
-            this.dgvDatos.RowHeadersVisible = false;
-            this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatos.Size = new System.Drawing.Size(800, 336);
-            this.dgvDatos.TabIndex = 3;
-            // 
-            // cmnNroVenta
-            // 
-            this.cmnNroVenta.HeaderText = "Nro. Venta";
-            this.cmnNroVenta.Name = "cmnNroVenta";
-            this.cmnNroVenta.ReadOnly = true;
-            // 
-            // cmnFechaVenta
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.cmnFechaVenta.DefaultCellStyle = dataGridViewCellStyle5;
-            this.cmnFechaVenta.HeaderText = "Fecha Venta";
-            this.cmnFechaVenta.Name = "cmnFechaVenta";
-            this.cmnFechaVenta.ReadOnly = true;
-            this.cmnFechaVenta.Width = 262;
-            // 
-            // cmnCliente
-            // 
-            this.cmnCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cmnCliente.HeaderText = "Cliente";
-            this.cmnCliente.Name = "cmnCliente";
-            this.cmnCliente.ReadOnly = true;
-            // 
-            // cmnTotal
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cmnTotal.DefaultCellStyle = dataGridViewCellStyle6;
-            this.cmnTotal.HeaderText = "Total";
-            this.cmnTotal.Name = "cmnTotal";
-            this.cmnTotal.ReadOnly = true;
-            // 
-            // btnUltimo
-            // 
-            this.btnUltimo.Image = global::Neptuno2022EF.Windows.Properties.Resources.last_24px;
-            this.btnUltimo.Location = new System.Drawing.Point(517, 13);
-            this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(75, 32);
-            this.btnUltimo.TabIndex = 39;
-            this.btnUltimo.UseVisualStyleBackColor = true;
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Image = global::Neptuno2022EF.Windows.Properties.Resources.next_24px;
-            this.btnSiguiente.Location = new System.Drawing.Point(436, 13);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 32);
-            this.btnSiguiente.TabIndex = 40;
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            // 
-            // btnAnterior
-            // 
-            this.btnAnterior.Image = global::Neptuno2022EF.Windows.Properties.Resources.previous_24px;
-            this.btnAnterior.Location = new System.Drawing.Point(355, 13);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(75, 32);
-            this.btnAnterior.TabIndex = 41;
-            this.btnAnterior.UseVisualStyleBackColor = true;
-            // 
-            // btnPrimero
-            // 
-            this.btnPrimero.Image = global::Neptuno2022EF.Windows.Properties.Resources.first_24px;
-            this.btnPrimero.Location = new System.Drawing.Point(274, 13);
-            this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(75, 32);
-            this.btnPrimero.TabIndex = 42;
-            this.btnPrimero.UseVisualStyleBackColor = true;
-            // 
             // tsbNuevo
             // 
             this.tsbNuevo.Image = global::Neptuno2022EF.Windows.Properties.Resources.new_file_32px;
@@ -279,6 +264,7 @@
             this.tsbNuevo.Size = new System.Drawing.Size(46, 51);
             this.tsbNuevo.Text = "Nuevo";
             this.tsbNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbDetalle
             // 
@@ -289,6 +275,12 @@
             this.tsbDetalle.Size = new System.Drawing.Size(41, 51);
             this.tsbDetalle.Text = "Editar";
             this.tsbDetalle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbDetalle.Click += new System.EventHandler(this.tsbDetalle_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
             // 
             // tsbFiltrar
             // 
@@ -310,6 +302,11 @@
             this.tsbActualizar.Text = "Actualizar";
             this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            // 
             // tsbImprimir
             // 
             this.tsbImprimir.Image = global::Neptuno2022EF.Windows.Properties.Resources.print_32px;
@@ -319,6 +316,11 @@
             this.tsbImprimir.Size = new System.Drawing.Size(57, 51);
             this.tsbImprimir.Text = "Imprimir";
             this.tsbImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
             // tsbCerrar
             // 
@@ -343,11 +345,11 @@
             this.Text = "frmVentas";
             this.Load += new System.EventHandler(this.frmVentas_Load);
             this.panelGrilla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.panelInferior.ResumeLayout(false);
             this.panelInferior.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

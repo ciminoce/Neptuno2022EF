@@ -1,5 +1,6 @@
 ﻿using Neptuno2022EF.Entidades.Dtos.Cliente;
 using Neptuno2022EF.Entidades.Dtos.Venta;
+using Neptuno2022EF.Ioc;
 using Neptuno2022EF.Servicios.Interfaces;
 using Neptuno2022EF.Windows.Helpers;
 using System;
@@ -53,5 +54,48 @@ namespace Neptuno2022EF.Windows
             }
         }
 
+        private void tsbDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvDatos.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            var r = dgvDatos.SelectedRows[0];
+            var ventaDto = (VentaListDto)r.Tag;
+            try
+            {
+                ////var venta = _servicio.GetVentaConDetalle(ventaDto.VentaId);
+                //frmDetalleVenta frm = new frmDetalleVenta() { Text = $"Detalle de Venta {venta.venta.VentaId}" };
+                ////frm.SetVenta(venta);
+                //DialogResult dr = frm.ShowDialog(this);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            frmVentaAE frm = new frmVentaAE(DI.Create<IServiciosClientes>()) { Text = "Nueva Venta" };
+            DialogResult dr = frm.ShowDialog(this);
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+            try
+            {
+                //var venta = frm.GetVenta();
+                //_servicio.Guardar(venta);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }
