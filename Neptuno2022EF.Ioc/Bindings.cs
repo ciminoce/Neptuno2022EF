@@ -30,6 +30,7 @@ namespace Neptuno2022EF.Ioc
             Bind<IRepositorioProveedores>().To<RepositorioProveedores>();
             Bind<IServiciosProveedores>().To<ServiciosProveedores>();
 
+            Bind<IRepositorioDetalleVentas>().To<RepositorioDetalleVentas>();
             Bind<IRepositorioVentas>().To<RepositorioVentas>();
             Bind<IServiciosVentas>().To<ServiciosVentas>();
 

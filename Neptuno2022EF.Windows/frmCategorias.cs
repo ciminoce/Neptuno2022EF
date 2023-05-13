@@ -39,13 +39,14 @@ namespace Neptuno2022EF.Windows
 
         private void MostrarDatosEnGrilla()
         {
-            GridHelper.LimpiarGrilla(dgvDatos);
-            foreach (Categoria categoria in lista)
-            {
-                DataGridViewRow r = GridHelper.ConstruirFila(dgvDatos);
-                GridHelper.SetearFila(r, categoria);
-                GridHelper.AgregarFila(dgvDatos, r);
-            }
+            //GridHelper.LimpiarGrilla(dgvDatos);
+            //foreach (Categoria categoria in lista)
+            //{
+            //    DataGridViewRow r = GridHelper.ConstruirFila(dgvDatos);
+            //    GridHelper.SetearFila(r, categoria);
+            //    GridHelper.AgregarFila(dgvDatos, r);
+            //}
+            FormHelper.MostrarDatosEnGrilla<Categoria>(dgvDatos, lista);
             lblRegistros.Text = registros.ToString();
             lblPaginaActual.Text = paginaActual.ToString();
             lblPaginas.Text = paginas.ToString();

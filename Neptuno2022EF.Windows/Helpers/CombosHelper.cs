@@ -1,6 +1,7 @@
 ﻿using Neptuno2022EF.Entidades.Dtos;
 using Neptuno2022EF.Entidades.Dtos.Ciudad;
 using Neptuno2022EF.Entidades.Dtos.Cliente;
+using Neptuno2022EF.Entidades.Dtos.Producto;
 using Neptuno2022EF.Entidades.Dtos.Proveedor;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Ioc;

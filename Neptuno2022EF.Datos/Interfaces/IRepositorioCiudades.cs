@@ -18,8 +18,9 @@ namespace Neptuno2022EF.Datos.Interfaces
         bool EstaRelacionada(Ciudad ciudad);
         Ciudad GetCiudadPorId(int ciudadId);
         List<CiudadListDto> GetCiudades(int paisId);
-        List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado);
+        List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado, int cantidad, int pagina);
         int GetCantidad();
         List<CiudadListDto> GetCiudadesPorPagina(int cantidad, int pagina);
+        int GetCantidad(Func<Ciudad, bool> predicado);
     }
 }

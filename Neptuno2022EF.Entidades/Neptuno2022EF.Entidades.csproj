@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxiliares\ResumenCategoria.cs" />
     <Compile Include="Dtos\Ciudad\CiudadListDto.cs" />
     <Compile Include="Dtos\Cliente\ClienteListDto.cs" />
     <Compile Include="Dtos\DetalleVenta\DetalleVentaListDto.cs" />
-    <Compile Include="Dtos\ProductoListDto.cs" />
+    <Compile Include="Dtos\Producto\ProductoListDto.cs" />
     <Compile Include="Dtos\Proveedor\ProveedorListDto.cs" />
+    <Compile Include="Dtos\Venta\VentaDetalleDto.cs" />
     <Compile Include="Dtos\Venta\VentaListDto.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Ciudad.cs" />

@@ -1,5 +1,5 @@
 ﻿using Neptuno2022EF.Datos.Interfaces;
-using Neptuno2022EF.Entidades.Dtos;
+using Neptuno2022EF.Entidades.Dtos.Producto;
 using Neptuno2022EF.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
@@ -17,6 +17,23 @@ namespace Neptuno2022EF.Datos.Repositorios
         {
             _context = context;
         }
+
+        public void ActualizarStock(int productoId, int cantidad)
+        {
+            var productoInDb = _context.Productos.SingleOrDefault(p => p.ProductoId == productoId);
+            productoInDb.UnidadesEnPedido -= cantidad;
+            productoInDb.Stock-=cantidad;
+            _context.Entry(productoInDb).State = EntityState.Modified;
+
+        }
+
+        public void ActualizarUnidadesEnPedido(int productoId, int cantidad)
+        {
+            var productoInDb = _context.Productos.SingleOrDefault(p => p.ProductoId == productoId);
+            productoInDb.UnidadesEnPedido += cantidad;
+            _context.Entry(productoInDb).State = EntityState.Modified;
+        }
+
         public void Agregar(Producto producto)
         {
             _context.Productos.Add(producto);
@@ -87,7 +104,7 @@ namespace Neptuno2022EF.Datos.Repositorios
                     NombreProducto=p.NombreProducto,
                     Categoria=p.Categoria.NombreCategoria,
                     PrecioUnitario=p.PrecioUnitario,
-                    Stock=p.Stock,
+                    UnidadesDisponibles=p.Stock-p.UnidadesEnPedido,
                     Suspendido=p.Suspendido,
                 }).ToList();
         }
@@ -102,7 +119,7 @@ namespace Neptuno2022EF.Datos.Repositorios
                     NombreProducto = p.NombreProducto,
                     Categoria = p.Categoria.NombreCategoria,
                     PrecioUnitario = p.PrecioUnitario,
-                    Stock = p.Stock,
+                    UnidadesDisponibles = p.Stock-p.UnidadesEnPedido,
                     Suspendido = p.Suspendido,
                 }).ToList();
 

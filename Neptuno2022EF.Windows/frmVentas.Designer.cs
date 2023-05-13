@@ -58,6 +58,7 @@
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panelInferior.SuspendLayout();
@@ -85,7 +86,8 @@
             this.cmnNroVenta,
             this.cmnFechaVenta,
             this.cmnCliente,
-            this.cmnTotal});
+            this.cmnTotal,
+            this.colEstado});
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(0, 0);
             this.dgvDatos.MultiSelect = false;
@@ -272,8 +274,8 @@
             this.tsbDetalle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbDetalle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbDetalle.Name = "tsbDetalle";
-            this.tsbDetalle.Size = new System.Drawing.Size(41, 51);
-            this.tsbDetalle.Text = "Editar";
+            this.tsbDetalle.Size = new System.Drawing.Size(47, 51);
+            this.tsbDetalle.Text = "Detalle";
             this.tsbDetalle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbDetalle.Click += new System.EventHandler(this.tsbDetalle_Click);
             // 
@@ -333,6 +335,12 @@
             this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,5 +392,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnFechaVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn cmnTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
     }
 }

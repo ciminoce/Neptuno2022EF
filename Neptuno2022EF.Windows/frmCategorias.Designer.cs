@@ -30,7 +30,6 @@
         {
             this.panelGrilla = new System.Windows.Forms.Panel();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.colPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInferior = new System.Windows.Forms.Panel();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
@@ -53,6 +52,8 @@
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
+            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panelInferior.SuspendLayout();
@@ -74,7 +75,8 @@
             this.dgvDatos.AllowUserToDeleteRows = false;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colPais});
+            this.colCategoria,
+            this.colDescripcion});
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(0, 0);
             this.dgvDatos.MultiSelect = false;
@@ -84,13 +86,6 @@
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatos.Size = new System.Drawing.Size(800, 336);
             this.dgvDatos.TabIndex = 0;
-            // 
-            // colPais
-            // 
-            this.colPais.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPais.HeaderText = "País";
-            this.colPais.Name = "colPais";
-            this.colPais.ReadOnly = true;
             // 
             // panelInferior
             // 
@@ -315,6 +310,20 @@
             this.tsbCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbCerrar.Click += new System.EventHandler(this.tsbCerrar_Click);
             // 
+            // colCategoria
+            // 
+            this.colCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCategoria.HeaderText = "Categoría";
+            this.colCategoria.Name = "colCategoria";
+            this.colCategoria.ReadOnly = true;
+            // 
+            // colDescripcion
+            // 
+            this.colDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescripcion.HeaderText = "Descripción";
+            this.colDescripcion.Name = "colDescripcion";
+            this.colDescripcion.ReadOnly = true;
+            // 
             // frmCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +350,6 @@
 
         private System.Windows.Forms.Panel panelGrilla;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPais;
         private System.Windows.Forms.Panel panelInferior;
         private System.Windows.Forms.Button btnUltimo;
         private System.Windows.Forms.Button btnSiguiente;
@@ -364,5 +372,7 @@
         private System.Windows.Forms.ToolStripButton tsbImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tsbCerrar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescripcion;
     }
 }

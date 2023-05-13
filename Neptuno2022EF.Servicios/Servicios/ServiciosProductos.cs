@@ -1,6 +1,6 @@
 ﻿using Neptuno2022EF.Datos;
 using Neptuno2022EF.Datos.Repositorios;
-using Neptuno2022EF.Entidades.Dtos;
+using Neptuno2022EF.Entidades.Dtos.Producto;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Servicios.Interfaces;
 using System;
@@ -18,6 +18,20 @@ namespace Neptuno2022EF.Servicios.Servicios
         {
             _repositorio = repositorio;
             _unitOfWork = unitOfWork;
+        }
+
+        public void ActualizarUnidadesEnPedido(int productoId, int cantidad)
+        {
+            try
+            {
+                _repositorio.ActualizarUnidadesEnPedido(productoId, cantidad);
+                _unitOfWork.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Borrar(int id)
@@ -94,7 +108,15 @@ namespace Neptuno2022EF.Servicios.Servicios
 
         public List<ProductoListDto> GetProductos(int categoriaId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _repositorio.GetProductos(categoriaId);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Guardar(Producto producto)

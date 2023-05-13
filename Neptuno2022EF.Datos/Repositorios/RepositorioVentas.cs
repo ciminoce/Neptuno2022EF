@@ -19,7 +19,7 @@ namespace Neptuno2022EF.Datos.Repositorios
 
         public void Agregar(Venta venta)
         {
-            throw new NotImplementedException();
+            _context.Ventas.Add(venta);
         }
 
         public List<VentaListDto> Filtrar(Func<Venta, bool> predicado)
@@ -42,7 +42,8 @@ namespace Neptuno2022EF.Datos.Repositorios
                     VentaId=v.VentaId,
                     FechaVenta=v.FechaVenta,
                     Cliente=v.Cliente.Nombre,
-                    Total=v.Total
+                    Total=v.Total,
+                    Estado=v.Estado.ToString()
                 }).ToList();
         }
     }

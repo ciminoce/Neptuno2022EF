@@ -1,7 +1,6 @@
 ﻿using Neptuno2022EF.Entidades.Dtos.Ciudad;
 using Neptuno2022EF.Entidades.Entidades;
 using Neptuno2022EF.Servicios.Interfaces;
-using Neptuno2022EF.Servicios.Servicios;
 using Neptuno2022EF.Windows.Helpers;
 using System;
 using System.Collections.Generic;
@@ -14,11 +13,12 @@ namespace Neptuno2022EF.Windows
     {
         private readonly IServiciosCiudades _servicio;
 
-        private int cantidadPorPagina = 20;
+        private int cantidadPorPagina = 5;
         private int registros;
         private int paginas;
         private int paginaActual = 1;
 
+        private bool filtroOn=false;
         public frmCiudades(IServiciosCiudades servicio)
         {
             InitializeComponent();
@@ -34,13 +34,14 @@ namespace Neptuno2022EF.Windows
 
         private void MostrarDatosEnGrilla()
         {
-            GridHelper.LimpiarGrilla(dgvDatos);
-            foreach (CiudadListDto ciudad in lista)
-            {
-                DataGridViewRow r = GridHelper.ConstruirFila(dgvDatos);
-                GridHelper.SetearFila(r, ciudad);
-                GridHelper.AgregarFila(dgvDatos,r);
-            }
+            //GridHelper.LimpiarGrilla(dgvDatos);
+            //foreach (CiudadListDto ciudad in lista)
+            //{
+            //    DataGridViewRow r = GridHelper.ConstruirFila(dgvDatos);
+            //    GridHelper.SetearFila(r, ciudad);
+            //    GridHelper.AgregarFila(dgvDatos,r);
+            //}
+            FormHelper.MostrarDatosEnGrilla<CiudadListDto>(dgvDatos, lista);
             lblRegistros.Text = registros.ToString();
             lblPaginaActual.Text = paginaActual.ToString();
             lblPaginas.Text = paginas.ToString();
@@ -84,7 +85,8 @@ namespace Neptuno2022EF.Windows
                 if (!_servicio.EstaRelacionada(ciudad))
                 {
                     _servicio.Borrar(ciudad.CiudadId);
-                    GridHelper.BorrarFila(dgvDatos, r);
+                    //GridHelper.BorrarFila(dgvDatos, r);
+                    RecargarGrilla();
                     MessageBox.Show("Registro borrado satisfactoriamente!!!",
                         "Mensaje",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -138,7 +140,15 @@ namespace Neptuno2022EF.Windows
         {
             try
             {
-                registros = _servicio.GetCantidad();
+                if (filtroOn)
+                {
+                    registros = _servicio.GetCantidad(predicado);
+                }
+                else
+                {
+                    registros = _servicio.GetCantidad();
+
+                }
                 paginas = CalculosHelper.CalcularCantidadPaginas(registros, cantidadPorPagina);
                 paginaActual = 1;
                 MostrarPaginado();
@@ -154,10 +164,18 @@ namespace Neptuno2022EF.Windows
 
         private void MostrarPaginado()
         {
-            lista = _servicio.GetCiudadesPorPagina(cantidadPorPagina, paginaActual);
+            if (filtroOn)
+            {
+                lista = _servicio.Filtrar(predicado,cantidadPorPagina, paginaActual);
+            }
+            else
+            {
+                lista = _servicio.GetCiudadesPorPagina(cantidadPorPagina, paginaActual);
+
+            }
             MostrarDatosEnGrilla();
         }
-
+        Func<Ciudad, bool> predicado;
         private void tsbFiltrar_Click(object sender, EventArgs e)
         {
             frmSeleccionarPais frm = new frmSeleccionarPais() { Text = "Seleccionar..." };
@@ -166,10 +184,12 @@ namespace Neptuno2022EF.Windows
             try
             {
                 var paisSeleccionado = frm.GetPais();
-                Func<Ciudad, bool> predicado = c => c.PaisId == paisSeleccionado.PaisId;
-                lista = _servicio.Filtrar(predicado);
+                predicado = c => c.PaisId == paisSeleccionado.PaisId;
+                //lista = _servicio.Filtrar(predicado);
                 //lista = _servicio.GetCiudades(paisSeleccionado.PaisId);
-                MostrarDatosEnGrilla();
+                //MostrarDatosEnGrilla();
+                filtroOn = true;
+                RecargarGrilla();
                 tsbFiltrar.BackColor = Color.Orange;
             }
             catch (Exception)
@@ -181,6 +201,7 @@ namespace Neptuno2022EF.Windows
 
         private void tsbActualizar_Click(object sender, EventArgs e)
         {
+            filtroOn=false;
             RecargarGrilla();
             tsbFiltrar.BackColor = Color.White;
 

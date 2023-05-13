@@ -123,11 +123,11 @@ namespace Neptuno2022EF.Servicios.Servicios
             }
         }
 
-        public List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado)
+        public List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado, int cantidad, int pagina)
         {
             try
             {
-                return _repitorioCiudades.Filtrar(predicado);
+                return _repitorioCiudades.Filtrar(predicado, cantidad, pagina);
             }
             catch (Exception)
             {
@@ -154,6 +154,19 @@ namespace Neptuno2022EF.Servicios.Servicios
             try
             {
                 return _repitorioCiudades.GetCiudadesPorPagina(cantidad, pagina);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int GetCantidad(Func<Ciudad, bool> predicado)
+        {
+            try
+            {
+                return _repitorioCiudades.GetCantidad(predicado);
             }
             catch (Exception)
             {

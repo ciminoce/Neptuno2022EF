@@ -1,9 +1,11 @@
-﻿using Neptuno2022EF.Entidades.Dtos;
-using Neptuno2022EF.Entidades.Dtos.Ciudad;
+﻿using Neptuno2022EF.Entidades.Dtos.Ciudad;
 using Neptuno2022EF.Entidades.Dtos.Cliente;
+using Neptuno2022EF.Entidades.Dtos.DetalleVenta;
+using Neptuno2022EF.Entidades.Dtos.Producto;
 using Neptuno2022EF.Entidades.Dtos.Proveedor;
 using Neptuno2022EF.Entidades.Dtos.Venta;
 using Neptuno2022EF.Entidades.Entidades;
+using Neptuno2022EF.Windows.Classes;
 using System;
 using System.Windows.Forms;
 
@@ -61,22 +63,29 @@ namespace Neptuno2022EF.Windows.Helpers
                     r.Cells[1].Value = ventaDto.FechaVenta.ToShortDateString();
                     r.Cells[2].Value = ventaDto.Cliente;
                     r.Cells[3].Value = ventaDto.Total;
+                    r.Cells[4].Value = ventaDto.Estado;
                     break;
 
                 case ProductoListDto producto:
                     r.Cells[0].Value = producto.NombreProducto;
                     r.Cells[1].Value = producto.Categoria;
                     r.Cells[2].Value = producto.PrecioUnitario;
-                    r.Cells[3].Value = producto.Stock;
+                    r.Cells[3].Value = producto.UnidadesDisponibles;
                     r.Cells[4].Value = producto.Suspendido;
                     break;
 
-                    //case DetalleVenta detalle:
-                    //    r.Cells[0].Value = detalle.Producto.NombreProducto;
-                    //    r.Cells[1].Value = detalle.Cantidad;
-                    //    r.Cells[2].Value = detalle.PrecioUnitario;
-                    //    r.Cells[3].Value = detalle.Cantidad * detalle.PrecioUnitario;
-                    //    break;
+                case ItemCarrito detalle:
+                    r.Cells[0].Value = detalle.Descripcion;
+                    r.Cells[1].Value = detalle.Cantidad;
+                    r.Cells[2].Value = detalle.Precio;
+                    r.Cells[3].Value = detalle.Subtotal;
+                    break;
+                case DetalleVentaListDto detalle:
+                    r.Cells[0].Value = detalle.Producto;
+                    r.Cells[1].Value = detalle.Cantidad;
+                    r.Cells[2].Value = detalle.PrecioUnitario;
+                    r.Cells[3].Value = detalle.Subtotal;
+                    break;
 
 
             }

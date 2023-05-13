@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelGrilla = new System.Windows.Forms.Panel();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.colPais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInferior = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnPrimero = new System.Windows.Forms.Button();
             this.lblPaginas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblPaginaActual = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPrimero = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbBorrar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbFiltrar = new System.Windows.Forms.ToolStripButton();
             this.tsbActualizar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCerrar = new System.Windows.Forms.ToolStripButton();
             this.panelGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
@@ -72,6 +73,8 @@
             // 
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPais});
@@ -110,40 +113,6 @@
             this.panelInferior.Size = new System.Drawing.Size(800, 60);
             this.panelInferior.TabIndex = 4;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbNuevo,
-            this.tsbBorrar,
-            this.tsbEditar,
-            this.toolStripSeparator1,
-            this.tsbFiltrar,
-            this.tsbActualizar,
-            this.toolStripSeparator2,
-            this.tsbImprimir,
-            this.toolStripSeparator3,
-            this.tsbCerrar});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 54);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
-            // 
             // btnUltimo
             // 
             this.btnUltimo.Image = global::Neptuno2022EF.Windows.Properties.Resources.last_24px;
@@ -173,6 +142,16 @@
             this.btnAnterior.TabIndex = 41;
             this.btnAnterior.UseVisualStyleBackColor = true;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnPrimero
+            // 
+            this.btnPrimero.Image = global::Neptuno2022EF.Windows.Properties.Resources.first_24px;
+            this.btnPrimero.Location = new System.Drawing.Point(274, 13);
+            this.btnPrimero.Name = "btnPrimero";
+            this.btnPrimero.Size = new System.Drawing.Size(75, 32);
+            this.btnPrimero.TabIndex = 42;
+            this.btnPrimero.UseVisualStyleBackColor = true;
+            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
             // lblPaginas
             // 
@@ -231,15 +210,24 @@
             this.label1.TabIndex = 35;
             this.label1.Text = "Cantidad de Registros:";
             // 
-            // btnPrimero
+            // toolStrip1
             // 
-            this.btnPrimero.Image = global::Neptuno2022EF.Windows.Properties.Resources.first_24px;
-            this.btnPrimero.Location = new System.Drawing.Point(274, 13);
-            this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(75, 32);
-            this.btnPrimero.TabIndex = 42;
-            this.btnPrimero.UseVisualStyleBackColor = true;
-            this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbBorrar,
+            this.tsbEditar,
+            this.toolStripSeparator1,
+            this.tsbFiltrar,
+            this.tsbActualizar,
+            this.toolStripSeparator2,
+            this.tsbImprimir,
+            this.toolStripSeparator3,
+            this.tsbCerrar});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 54);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbNuevo
             // 
@@ -274,6 +262,11 @@
             this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
+            // 
             // tsbFiltrar
             // 
             this.tsbFiltrar.Image = global::Neptuno2022EF.Windows.Properties.Resources.filter_32px;
@@ -294,6 +287,11 @@
             this.tsbActualizar.Text = "Actualizar";
             this.tsbActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            // 
             // tsbImprimir
             // 
             this.tsbImprimir.Image = global::Neptuno2022EF.Windows.Properties.Resources.print_32px;
@@ -303,6 +301,11 @@
             this.tsbImprimir.Size = new System.Drawing.Size(57, 51);
             this.tsbImprimir.Text = "Imprimir";
             this.tsbImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
             // tsbCerrar
             // 

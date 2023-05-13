@@ -33,12 +33,11 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label address1Label;
             System.Windows.Forms.Label cityLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAgregarPais = new System.Windows.Forms.Button();
             this.cboClientes = new System.Windows.Forms.ComboBox();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -73,6 +72,7 @@
             this.cmnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBorrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAgregarPais = new System.Windows.Forms.Button();
             nameLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             address1Label = new System.Windows.Forms.Label();
@@ -88,6 +88,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(18, 23);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(42, 13);
+            nameLabel.TabIndex = 18;
+            nameLabel.Text = "Cliente:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(20, 76);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(43, 13);
+            label1.TabIndex = 20;
+            label1.Text = "Ciudad:";
+            // 
+            // address1Label
+            // 
+            address1Label.AutoSize = true;
+            address1Label.Location = new System.Drawing.Point(20, 50);
+            address1Label.Name = "address1Label";
+            address1Label.Size = new System.Drawing.Size(55, 13);
+            address1Label.TabIndex = 20;
+            address1Label.Text = "Dirección:";
+            // 
+            // cityLabel
+            // 
+            cityLabel.AutoSize = true;
+            cityLabel.Location = new System.Drawing.Point(18, 102);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(61, 13);
+            cityLabel.TabIndex = 23;
+            cityLabel.Text = "País , C.P.:";
             // 
             // splitContainer1
             // 
@@ -132,15 +168,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
-            // btnAgregarPais
-            // 
-            this.btnAgregarPais.Image = global::Neptuno2022EF.Windows.Properties.Resources.plus_24px;
-            this.btnAgregarPais.Location = new System.Drawing.Point(474, 11);
-            this.btnAgregarPais.Name = "btnAgregarPais";
-            this.btnAgregarPais.Size = new System.Drawing.Size(36, 31);
-            this.btnAgregarPais.TabIndex = 28;
-            this.btnAgregarPais.UseVisualStyleBackColor = true;
-            // 
             // cboClientes
             // 
             this.cboClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -149,33 +176,7 @@
             this.cboClientes.Name = "cboClientes";
             this.cboClientes.Size = new System.Drawing.Size(375, 21);
             this.cboClientes.TabIndex = 0;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(18, 23);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(42, 13);
-            nameLabel.TabIndex = 18;
-            nameLabel.Text = "Cliente:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(20, 76);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(43, 13);
-            label1.TabIndex = 20;
-            label1.Text = "Ciudad:";
-            // 
-            // address1Label
-            // 
-            address1Label.AutoSize = true;
-            address1Label.Location = new System.Drawing.Point(20, 50);
-            address1Label.Name = "address1Label";
-            address1Label.Size = new System.Drawing.Size(55, 13);
-            address1Label.TabIndex = 20;
-            address1Label.Text = "Dirección:";
+            this.cboClientes.SelectedIndexChanged += new System.EventHandler(this.cboClientes_SelectedIndexChanged);
             // 
             // txtCiudad
             // 
@@ -194,15 +195,6 @@
             this.txtDireccion.Size = new System.Drawing.Size(483, 20);
             this.txtDireccion.TabIndex = 21;
             this.txtDireccion.TabStop = false;
-            // 
-            // cityLabel
-            // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(18, 102);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(61, 13);
-            cityLabel.TabIndex = 23;
-            cityLabel.Text = "País , C.P.:";
             // 
             // txtPais
             // 
@@ -282,6 +274,7 @@
             this.cboProducto.Name = "cboProducto";
             this.cboProducto.Size = new System.Drawing.Size(309, 21);
             this.cboProducto.TabIndex = 1;
+            this.cboProducto.SelectedIndexChanged += new System.EventHandler(this.cboProducto_SelectedIndexChanged);
             // 
             // cboCategorias
             // 
@@ -291,6 +284,7 @@
             this.cboCategorias.Name = "cboCategorias";
             this.cboCategorias.Size = new System.Drawing.Size(258, 21);
             this.cboCategorias.TabIndex = 0;
+            this.cboCategorias.SelectedIndexChanged += new System.EventHandler(this.cboCategorias_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -322,6 +316,7 @@
             this.nudCantidad.Name = "nudCantidad";
             this.nudCantidad.Size = new System.Drawing.Size(120, 20);
             this.nudCantidad.TabIndex = 2;
+            this.nudCantidad.ValueChanged += new System.EventHandler(this.nudCantidad_ValueChanged);
             // 
             // txtPrecioUnit
             // 
@@ -339,6 +334,7 @@
             this.btnCancelarProducto.TabIndex = 4;
             this.btnCancelarProducto.Text = "Cancelar";
             this.btnCancelarProducto.UseVisualStyleBackColor = true;
+            this.btnCancelarProducto.Click += new System.EventHandler(this.btnCancelarProducto_Click);
             // 
             // btnAceptarProducto
             // 
@@ -348,6 +344,7 @@
             this.btnAceptarProducto.TabIndex = 3;
             this.btnAceptarProducto.Text = "Aceptar";
             this.btnAceptarProducto.UseVisualStyleBackColor = true;
+            this.btnAceptarProducto.Click += new System.EventHandler(this.btnAceptarProducto_Click);
             // 
             // label10
             // 
@@ -415,6 +412,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.CancelarButton_Click);
             // 
             // btnOk
             // 
@@ -425,6 +423,7 @@
             this.btnOk.Text = "OK";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtTotalVenta
             // 
@@ -473,24 +472,24 @@
             // 
             // cmnPrecioUnitario
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cmnPrecioUnitario.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cmnPrecioUnitario.DefaultCellStyle = dataGridViewCellStyle1;
             this.cmnPrecioUnitario.HeaderText = "Precio Unitario";
             this.cmnPrecioUnitario.Name = "cmnPrecioUnitario";
             this.cmnPrecioUnitario.ReadOnly = true;
             // 
             // cmnCantidad
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cmnCantidad.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cmnCantidad.DefaultCellStyle = dataGridViewCellStyle2;
             this.cmnCantidad.HeaderText = "Cantidad";
             this.cmnCantidad.Name = "cmnCantidad";
             this.cmnCantidad.ReadOnly = true;
             // 
             // cmnTotal
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cmnTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cmnTotal.DefaultCellStyle = dataGridViewCellStyle3;
             this.cmnTotal.HeaderText = "Total";
             this.cmnTotal.Name = "cmnTotal";
             this.cmnTotal.ReadOnly = true;
@@ -508,6 +507,15 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnAgregarPais
+            // 
+            this.btnAgregarPais.Image = global::Neptuno2022EF.Windows.Properties.Resources.plus_24px;
+            this.btnAgregarPais.Location = new System.Drawing.Point(474, 11);
+            this.btnAgregarPais.Name = "btnAgregarPais";
+            this.btnAgregarPais.Size = new System.Drawing.Size(36, 31);
+            this.btnAgregarPais.TabIndex = 28;
+            this.btnAgregarPais.UseVisualStyleBackColor = true;
             // 
             // frmVentaAE
             // 

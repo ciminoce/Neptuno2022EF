@@ -124,10 +124,13 @@ namespace Neptuno2022EF.Datos.Repositorios
             }
         }
 
-        public List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado)
+        public List<CiudadListDto> Filtrar(Func<Ciudad, bool> predicado, int cantidad, int pagina)
         {
             return _context.Ciudades.Include(c => c.Pais)
                 .Where(predicado)
+                .OrderBy(c=>c.NombreCiudad)
+                .Skip(cantidad*(pagina-1))
+                .Take(cantidad)
                 .Select(c => new CiudadListDto
                 {
                     CiudadId = c.CiudadId,
@@ -140,6 +143,11 @@ namespace Neptuno2022EF.Datos.Repositorios
         public int GetCantidad()
         {
             return _context.Ciudades.Count();
+        }
+
+        public int GetCantidad(Func<Ciudad, bool> predicado)
+        {
+            return _context.Ciudades.Count(predicado);
         }
 
         public List<CiudadListDto> GetCiudades()

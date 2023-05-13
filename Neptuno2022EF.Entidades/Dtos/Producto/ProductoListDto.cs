@@ -1,6 +1,6 @@
 ﻿using Neptuno2022EF.Entidades.Entidades;
 
-namespace Neptuno2022EF.Entidades.Dtos
+namespace Neptuno2022EF.Entidades.Dtos.Producto
 {
     public class ProductoListDto
     {
@@ -8,7 +8,7 @@ namespace Neptuno2022EF.Entidades.Dtos
         public string NombreProducto { get; set; }
         public string Categoria { get; set; }
         public decimal PrecioUnitario { get; set; }
-        public int Stock { get; set; }
+        public int UnidadesDisponibles { get; set; }
         public bool Suspendido { get; set; }
 
     }

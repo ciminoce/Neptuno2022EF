@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Neptuno2022EF.Entidades.Dtos.DetalleVenta;
+using Neptuno2022EF.Entidades.Dtos.Venta;
+using Neptuno2022EF.Windows.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,25 @@ namespace Neptuno2022EF.Windows
         public frmDetalleVenta()
         {
             InitializeComponent();
+        }
+        private VentaDetalleDto ventaDto;
+        public void SetVenta(VentaDetalleDto ventaDetalleDto)
+        {
+            ventaDto = ventaDetalleDto;
+        }
+
+        private void frmDetalleVenta_Load(object sender, EventArgs e)
+        {
+            txtCliente.Text = ventaDto.venta.Cliente;
+            txtFechaVenta.Text = ventaDto.venta.FechaVenta.ToShortDateString();
+            txtVenta.Text=ventaDto.venta.VentaId.ToString();
+            txtTotalVta.Text=ventaDto.venta.Total.ToString();
+            FormHelper.MostrarDatosEnGrilla<DetalleVentaListDto>(dgvDatos, ventaDto.detalleVenta);
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

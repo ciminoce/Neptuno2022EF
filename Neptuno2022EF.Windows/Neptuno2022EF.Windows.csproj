@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Carrito.cs" />
+    <Compile Include="Classes\ItemCarrito.cs" />
     <Compile Include="frmCategoriaAE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +100,12 @@
     </Compile>
     <Compile Include="frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResumen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResumen.Designer.cs">
+      <DependentUpon>frmResumen.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSeleccionarCategoria.cs">
       <SubType>Form</SubType>
@@ -173,7 +181,10 @@
     </Compile>
     <Compile Include="Helpers\CalculosHelper.cs" />
     <Compile Include="Helpers\CombosHelper.cs" />
+    <Compile Include="Helpers\Enum\TipoMensaje.cs" />
+    <Compile Include="Helpers\FormHelper.cs" />
     <Compile Include="Helpers\GridHelper.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCategoriaAE.resx">
@@ -196,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResumen.resx">
+      <DependentUpon>frmResumen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeleccionarCategoria.resx">
       <DependentUpon>frmSeleccionarCategoria.cs</DependentUpon>

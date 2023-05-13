@@ -68,6 +68,15 @@ namespace Neptuno2022EF.Windows
                 //frmDetalleVenta frm = new frmDetalleVenta() { Text = $"Detalle de Venta {venta.venta.VentaId}" };
                 ////frm.SetVenta(venta);
                 //DialogResult dr = frm.ShowDialog(this);
+                var detalle = _servicio.GetDetalleVenta(ventaDto.VentaId);
+                var ventaDetalleDto = new VentaDetalleDto()
+                {
+                    venta = ventaDto,
+                    detalleVenta = detalle
+                };
+                frmDetalleVenta frm = new frmDetalleVenta() { Text = "Detalle de la Venta" };
+                frm.SetVenta(ventaDetalleDto);
+                frm.ShowDialog(this);
             }
             catch (Exception)
             {
@@ -79,7 +88,7 @@ namespace Neptuno2022EF.Windows
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            frmVentaAE frm = new frmVentaAE(DI.Create<IServiciosClientes>()) { Text = "Nueva Venta" };
+            frmVentaAE frm = new frmVentaAE(DI.Create<IServiciosClientes>(),DI.Create<IServiciosProductos>()) { Text = "Nueva Venta" };
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel)
             {
@@ -87,8 +96,14 @@ namespace Neptuno2022EF.Windows
             }
             try
             {
-                //var venta = frm.GetVenta();
-                //_servicio.Guardar(venta);
+                var venta = frm.GetVenta();
+                _servicio.Guardar(venta);
+                MessageBox.Show("Venta guardada", "Mensaje",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var r=GridHelper.ConstruirFila(dgvDatos);
+                GridHelper.SetearFila(r, dgvDatos);
+                GridHelper.AgregarFila(dgvDatos, r);
+                venta = null;
             }
             catch (Exception)
             {

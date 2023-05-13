@@ -3,14 +3,22 @@ using Neptuno2022EF.Entidades.Dtos.DetalleVenta;
 using Neptuno2022EF.Entidades.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Neptuno2022EF.Datos.Repositorios
 {
     public class RepositorioDetalleVentas : IRepositorioDetalleVentas
     {
+        private readonly NeptunoDbContext _context;
+        public RepositorioDetalleVentas(NeptunoDbContext context)
+        {
+            _context = context;
+        }
         public void Agregar(DetalleVenta detalle)
         {
-            throw new NotImplementedException();
+            _context.DetalleVentas.Add(detalle);
         }
 
         public void Borrar(int id)
@@ -40,7 +48,16 @@ namespace Neptuno2022EF.Datos.Repositorios
 
         public List<DetalleVentaListDto> GetDetalleVentas(int ventaId)
         {
-            throw new NotImplementedException();
+            return _context.DetalleVentas.Include(d=>d.Producto)
+                .Where(d=>d.VentaId==ventaId)
+                .Select(d=>new DetalleVentaListDto()
+                {
+                    DetalleVentaId=d.DetalleVentaId,
+                    Producto=d.Producto.NombreProducto,
+                    Cantidad=d.Cantidad,
+                    PrecioUnitario=d.PrecioUnitario,
+
+                }).ToList();
         }
     }
 }
